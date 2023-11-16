@@ -15,14 +15,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Fitness Time!',
       theme: ThemeData(
-        useMaterial3: true,
+        useMaterial3: false,
         textTheme: GoogleFonts.montserratTextTheme(
           Theme.of(context).textTheme,
         ),
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFFDDDDDD),
           primary: const Color(0xFFFF88DC),
-          secondary: const Color(0xFFFFFFFF),
+          secondary: const Color(0xFFA67DB8),
           tertiary: const Color(0xFF5E2BFF),
         ),
       ),

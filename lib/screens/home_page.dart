@@ -1,3 +1,4 @@
+import 'package:fitness_time/screens/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -12,6 +13,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
+        elevation: 20.0,
         title: Text(
           "Fitness Time",
           style: GoogleFonts.montserrat(
@@ -22,10 +24,18 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         actions: [
           InkWell(
-            onTap: () {},
-            child: const CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://randomuser.me/api/portraits/women/44.jpg'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfilePage()),
+              );
+            },
+            child: const Hero(
+              tag: 'profileImage',
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    'https://randomuser.me/api/portraits/women/44.jpg'),
+              ),
             ),
           )
         ],
@@ -50,16 +60,32 @@ class HomePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: const Text('Your activity'),
-              onTap: () => openPage(context, 0),
+              title: const Text('Your profile'),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const ProfilePage()),
+                );
+              },
             ),
             ListTile(
-              title: const Text('Diet and receipts'),
-              onTap: () => openPage(context, 1),
-            ),
+                title: const Text('Diet and receipts'),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                          'Still unavailable. Stay tuned for app updates!'),
+                      duration: Duration(seconds: 3),
+                    ),
+                  );
+                }),
             ListTile(
-              title: const Text('About this app'),
-              onTap: () => openPage(context, 2),
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
             ),
           ],
         ),
@@ -184,6 +210,12 @@ class HomePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
+          if (index == 2) {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const ProfilePage()));
+          }
+        },
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Theme.of(context).colorScheme.primary,
         items: const <BottomNavigationBarItem>[
