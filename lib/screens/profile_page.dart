@@ -83,8 +83,16 @@ class ProfilePage extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            const SliderTile(title: 'Height', value: 150),
-            const SliderTile(title: 'Weight', value: 50),
+            const SliderTile(
+              title: 'Height',
+              value: 150,
+              measureUnit: 'cm',
+            ),
+            const SliderTile(
+              title: 'Weight',
+              value: 50,
+              measureUnit: 'kg',
+            ),
             const SizedBox(
               height: 16,
             ),

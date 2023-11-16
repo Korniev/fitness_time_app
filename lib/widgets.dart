@@ -54,11 +54,13 @@ class StatCard extends StatelessWidget {
 class SliderTile extends StatelessWidget {
   final String title;
   final double value;
+  final String measureUnit;
 
   const SliderTile({
     Key? key,
     required this.title,
     required this.value,
+    required this.measureUnit,
   }) : super(key: key);
 
   @override
@@ -76,7 +78,7 @@ class SliderTile extends StatelessWidget {
             child: Slider(
               value: value,
               min: 0,
-              max: 250,
+              max: measureUnit == 'cm' ? 250 : 150,
               divisions: 250,
               label: value.round().toString(),
               onChanged: (double value) {},
@@ -85,7 +87,7 @@ class SliderTile extends StatelessWidget {
             ),
           ),
           Text(
-            "${value.round()} cm",
+            "${value.round()} $measureUnit",
             style: GoogleFonts.montserrat(),
           ),
         ],

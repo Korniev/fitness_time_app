@@ -62,3 +62,11 @@ doc/api/
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
+ios/Runner.xcworkspace/contents.xcworkspacedata
+ios/Runner.xcodeproj/project.pbxproj
+ios/Podfile.lock
+ios/Runner.xcodeproj/project.pbxproj
+*.pbxproj
+*.xcworkspacedata
+ios/Runner.xcworkspace/contents.xcworkspacedata
+ios/Runner.xcworkspace/contents.xcworkspacedata
