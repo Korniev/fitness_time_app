@@ -1,7 +1,6 @@
+import 'package:fitness_time/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'screens/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,10 +23,12 @@ class MyApp extends StatelessWidget {
           seedColor: const Color(0xFFDDDDDD),
           primary: const Color(0xFFFF88DC),
           secondary: const Color(0xFFFFFFFF),
-          tertiary: const Color(0xFF91A6FF),
+          tertiary: const Color(0xFF5E2BFF),
         ),
       ),
       home: const HomePage(),
+
+      //slider, card
     );
   }
 }

@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   void openPage(BuildContext context, int index) {}
 
@@ -20,10 +20,13 @@ class HomePage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        actions: const [
-          CircleAvatar(
-            backgroundImage: NetworkImage(
-                'https://randomuser.me/api/portraits/women/44.jpg'),
+        actions: [
+          InkWell(
+            onTap: () {},
+            child: const CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'https://randomuser.me/api/portraits/women/44.jpg'),
+            ),
           )
         ],
       ),
@@ -78,7 +81,7 @@ class HomePage extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium),
             ),
             Padding(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(2),
               child: TextButton(
                 onPressed: () {},
                 child: Text(
@@ -100,7 +103,7 @@ class HomePage extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
               child: ListTile(
                 leading: Icon(
-                  Icons.directions_run,
+                  Icons.run_circle_outlined,
                   color: Theme.of(context).colorScheme.tertiary,
                 ),
                 title: const Text("Running"),
@@ -118,7 +121,7 @@ class HomePage extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
               child: ListTile(
                 leading: Icon(
-                  Icons.directions_run,
+                  Icons.run_circle_outlined,
                   color: Theme.of(context).colorScheme.tertiary,
                 ),
                 title: const Text("Running"),
@@ -136,7 +139,7 @@ class HomePage extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
               child: ListTile(
                 leading: Icon(
-                  Icons.directions_run,
+                  Icons.run_circle_outlined,
                   color: Theme.of(context).colorScheme.tertiary,
                 ),
                 title: const Text("Running"),
@@ -195,7 +198,7 @@ class HomePage extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
-          )
+          ),
         ],
       ),
     );
