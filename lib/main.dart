@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
         ),
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFFDDDDDD),
-          primary: const Color(0xFFFF88DC),
-          secondary: const Color(0xFFA67DB8),
+          primary: const Color(0xFFF896D8),
+          secondary: const Color(0xFFCA7DF9),
           tertiary: const Color(0xFF5E2BFF),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:fitness_time/screens/profile_page.dart';
+import 'package:fitness_time/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -13,7 +14,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        elevation: 20.0,
+        elevation: 4.0,
         title: Text(
           "Fitness Time",
           style: GoogleFonts.montserrat(
@@ -110,10 +111,10 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(2),
               child: TextButton(
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   "More details",
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.tertiary,
+                    color: AppStyles.celticblue,
                   ),
                 ),
               ),
@@ -236,3 +237,6 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+// dismissible para quitar actividad
+//statefullwidget para slidebar

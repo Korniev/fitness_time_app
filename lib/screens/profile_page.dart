@@ -2,7 +2,8 @@ import 'package:fitness_time/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../widgets.dart';
+import '../widgets/slider_tile.dart';
+import '../widgets/stat_card.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
