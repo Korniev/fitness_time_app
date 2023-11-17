@@ -76,3 +76,7 @@ ios/Runner.xcworkspace/contents.xcworkspacedata
 ios/Runner.xcworkspace/contents.xcworkspacedata
 *.xcworkspacedata
 *.pbxproj
+ios/Runner.xcworkspace/contents.xcworkspacedata
+ios/Runner.xcodeproj/project.pbxproj
+*.xcworkspacedata
+*.pbxproj
