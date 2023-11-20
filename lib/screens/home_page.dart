@@ -8,7 +8,7 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -142,7 +142,8 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   var activity = activities[index];
                   return Dismissible(
-                    key: Key(activity["title"]! + activity["date"]!),
+                    //key: Key(activity["title"]! + activity["date"]!),
+                    key: UniqueKey(),
                     onDismissed: (direction) {
                       setState(() {
                         activities.removeAt(index);
