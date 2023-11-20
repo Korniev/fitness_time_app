@@ -4,10 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
-  void openPage(BuildContext context, int index) {}
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<Map<String, String>> activities = [
+    {"title": "Running", "date": "Yesterday, 18:20", "distance": "7,300 km"},
+    {"title": "Running", "date": "15 Oct 2023, 13:45", "distance": "8,000 km"},
+    {"title": "Running", "date": "10 Oct 2023, 19:02", "distance": "6,350 km"}
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -126,61 +135,43 @@ class HomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
-            Card(
-              margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-              child: ListTile(
-                leading: Icon(
-                  Icons.run_circle_outlined,
-                  color: Theme.of(context).colorScheme.tertiary,
-                ),
-                title: const Text("Running"),
-                subtitle: const Text("Yesterday, 18:20"),
-                trailing: const Text(
-                  "7,300km",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            Card(
-              margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-              child: ListTile(
-                leading: Icon(
-                  Icons.run_circle_outlined,
-                  color: Theme.of(context).colorScheme.tertiary,
-                ),
-                title: const Text("Running"),
-                subtitle: const Text("15 Oct 2023, 13:45"),
-                trailing: const Text(
-                  "6,550km",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            Card(
-              margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-              child: ListTile(
-                leading: Icon(
-                  Icons.run_circle_outlined,
-                  color: Theme.of(context).colorScheme.tertiary,
-                ),
-                title: const Text("Running"),
-                subtitle: const Text("10 Oct 2023, 19:02"),
-                trailing: const Text(
-                  "8,300km",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            //const SizedBox(height: 10),
+            ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: activities.length,
+                itemBuilder: (context, index) {
+                  var activity = activities[index];
+                  return Dismissible(
+                    key: Key(activity["title"]! + activity["date"]!),
+                    onDismissed: (direction) {
+                      setState(() {
+                        activities.removeAt(index);
+                      });
+                    },
+                    background: Container(
+                      color: AppStyles.lavender_pink,
+                    ),
+                    child: Card(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 8),
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.run_circle_outlined,
+                          color: Theme.of(context).colorScheme.tertiary,
+                        ),
+                        title: Text(activity["title"]!),
+                        subtitle: Text(activity["date"]!),
+                        trailing: Text(
+                          activity["distance"]!,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                }),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
