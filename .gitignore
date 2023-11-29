@@ -82,5 +82,6 @@ ios/Runner.xcodeproj/project.pbxproj
 *.pbxproj
 *.xcworkspacedata
 *.pbxproj
-/linux
-/windows
+/linux/flutter
+/windows/flutter
+/windows/runner/
