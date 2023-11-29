@@ -82,5 +82,5 @@ ios/Runner.xcodeproj/project.pbxproj
 *.pbxproj
 *.xcworkspacedata
 *.pbxproj
-/linux/
-/windows/
+/linux
+/windows
